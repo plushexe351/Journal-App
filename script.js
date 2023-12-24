@@ -3,19 +3,13 @@ const previewScreen = document.querySelector('.preview');
 const closePreviewBtn = document.querySelector('.btn-close-modal');
 const headerCategories = document.querySelectorAll('header .category');
 const noteTags = document.querySelectorAll('.preview .category');
+const newNoteBtn = document.querySelector('.btn-new-note');
 
 const previewScreenHeading = previewScreen.querySelector('.heading');
 const previewScreenImages = previewScreen.querySelectorAll('img');
 const previewImgContainer = previewScreen.querySelector('.images');
 const previewScreenText = previewScreen.querySelector('.noteMessage');
-
-// function isInViewport(element) {
-//     const rect = element.getBoundingClientRect();
-//     return (
-//         rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-//         rect.bottom >= 0
-//     );
-// }
+const penBtn = document.querySelector('.fa-pen-clip');
 
 function clearPreviewImages() {
     while (previewImgContainer.firstChild)
@@ -53,7 +47,7 @@ function showPreviewScreen(note) {
         newPreviewScreenImg.src = image.src;
         previewImgContainer.appendChild(newPreviewScreenImg);
     })
-    previewScreenHeading.textContent = noteHeading;
+    previewScreenHeading.value = noteHeading;
     const noteMessage = note.querySelector('p').textContent; // reminder to change class name later
     previewScreenText.textContent = noteMessage;
     const tags = note.querySelectorAll('.tag');
@@ -101,3 +95,23 @@ function appearAnimation() {
     })
 
 }
+
+
+newNoteBtn.addEventListener('click', () => {
+    previewScreen.classList.add('active');
+    clearPreviewImages();
+    previewScreenHeading.value = "";
+    previewScreenText.textContent = "Type here...";
+})
+
+previewScreenText.addEventListener('click', () => {
+    if (previewScreenText.textContent.trim() === "Type here...")
+        previewScreenText.textContent = "";
+
+
+})
+
+penBtn.addEventListener('click', () => {
+    if (previewScreenText.textContent.trim() === "")
+        previewScreenText.textContent = "Type here...";
+})
