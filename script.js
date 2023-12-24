@@ -4,6 +4,7 @@ const closePreviewBtn = document.querySelector('.btn-close-modal');
 const headerCategories = document.querySelectorAll('header .category');
 const noteTags = document.querySelectorAll('.preview .category');
 const newNoteBtn = document.querySelector('.btn-new-note');
+const notesContainer = document.querySelector('.notes');
 
 const previewScreenHeading = previewScreen.querySelector('.heading');
 const previewScreenImages = previewScreen.querySelectorAll('img');
@@ -52,6 +53,7 @@ function showPreviewScreen(note) {
     previewScreenText.textContent = noteMessage;
     const tags = note.querySelectorAll('.tag');
     addTags(tags);
+    newnotecreated = false;
 
 }
 
@@ -97,12 +99,31 @@ function appearAnimation() {
 
 }
 
+let newnotecreated = false;
 
 newNoteBtn.addEventListener('click', () => {
     previewScreen.classList.add('active');
     clearPreviewImages();
     previewScreenHeading.value = "";
     previewScreenText.textContent = "Type here...";
+    newnotecreated = true;
+
+})
+
+closePreviewBtn.addEventListener('click', () => {
+
+    if (newnotecreated) {
+        const newNote = document.createElement('div');
+        newNote.classList.add('note');
+        newNote.classList.add('show');
+        const newNoteHeading = document.createElement('h2');
+        newNoteHeading.textContent = `Note`
+        const newNoteMessage = document.createElement('p');
+        newNoteMessage.textContent = "ushrizzzzzzzz.... "
+        newNote.appendChild(newNoteHeading);
+        newNote.appendChild(newNoteMessage);
+        notesContainer.prepend(newNote);
+    }
 })
 
 previewScreenText.addEventListener('click', () => {
