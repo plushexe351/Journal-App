@@ -90,6 +90,7 @@ function appearAnimation() {
     let animDuration = 0.3;
 
     notes.forEach(note => {
+        note.classList.add('show');
         note.style.animation = `divappear ${animDuration}s ease`
         animDuration += .2;
     })

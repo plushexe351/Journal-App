@@ -99,6 +99,7 @@ header h1 {
 }
 
 .note {
+    opacity: 0;
     flex: 1;
     padding: 1rem 1.5rem;
     color: rgb(213, 213, 213);
@@ -113,19 +114,16 @@ header h1 {
 
 @keyframes divappear {
     0% {
-        opacity: 0;
         transform: translate(0, 20rem);
     }
 
     100% {
-        opacity: 1;
         transform: unset;
     }
 }
 
 .note.show {
     opacity: 1;
-    transform: unset;
 }
 
 .note:hover {
