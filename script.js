@@ -10,7 +10,7 @@ const previewScreenHeading = previewScreen.querySelector('.preview .heading');
 const previewScreenImages = previewScreen.querySelectorAll('img');
 const previewImgContainer = previewScreen.querySelector('.images');
 const previewScreenText = previewScreen.querySelector('.noteMessage');
-const penBtn = document.querySelector('.fa-pen-clip');
+// const penBtn = document.querySelector('.fa-pen-clip');
 // const deleteNoteBtn = document.querySelector('.delete-note');
 const modalNoNotes = document.querySelector('.modal-no-notes');
 const imageInput = document.getElementById('imageInput');
@@ -221,7 +221,7 @@ closePreviewBtn.addEventListener('click', () => {
                 clearPreviewImages();
                 const newImg = document.createElement('img');
                 newImg.src = image.src;
-                currentNoteImageContainer.prepend(newImg);
+                currentNoteImageContainer.appendChild(newImg);
             }
         })
         // note.querySelector('.tag').textContent = ;
@@ -262,7 +262,7 @@ closePreviewBtn.addEventListener('click', () => {
             console.log("ok");
             const newImg = document.createElement('img');
             newImg.src = image.src;
-            currentNoteImageContainer.prepend(newImg);
+            currentNoteImageContainer.appendChild(newImg);
         })
         newNote.appendChild(currentNoteImageContainer);
         newNote.appendChild(newNoteMessage);
@@ -293,10 +293,10 @@ previewScreenText.addEventListener('click', () => {
 
 })
 
-penBtn.addEventListener('click', () => {
-    if (previewScreenText.textContent.trim() === "")
-        previewScreenText.textContent = "Type here...";
-})
+// penBtn.addEventListener('click', () => {
+//     if (previewScreenText.textContent.trim() === "")
+//         previewScreenText.textContent = "Type here...";
+// })
 
 modalNoNotes?.addEventListener('click', () => {
     newNoteBtn.click();
