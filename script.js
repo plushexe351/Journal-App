@@ -191,7 +191,13 @@ window.addEventListener('load', () => {
 
 function openNoteEditor() {
     removeClassFromALlElements(noteTags, 'active');
-    noteTags[0].classList.add('active');
+    noteTags.forEach(tag => {
+        headerCategories.forEach(category => {
+            if (category.classList.contains('active') && category.textContent?.replace(/\d/g, '').trim() == tag.textContent?.trim()) {
+                tag.classList.add('active');
+            }
+        })
+    })
     previewScreen.classList.add('active');
     clearPreviewImages();
     previewScreenHeading.value = "";
@@ -270,10 +276,12 @@ closePreviewBtn.addEventListener('click', () => {
         newNote.appendChild(newNoteDate);
 
         notesContainer.prepend(newNote);
-
-
-        removeClassFromALlElements(headerCategories, 'active');
-        headerCategories[0].click();
+        headerCategories.forEach(category => {
+            if (category.classList.contains('active')) {
+                removeClassFromALlElements(headerCategories, 'active');
+                category.click();
+            }
+        })
 
     }
 
