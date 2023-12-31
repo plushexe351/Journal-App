@@ -198,6 +198,7 @@ function openNoteEditor() {
             }
         })
     })
+
     previewScreen.classList.add('active');
     clearPreviewImages();
     previewScreenHeading.value = "";

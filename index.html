@@ -16,6 +16,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap"
       rel="stylesheet"
     />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Journal</title>
   </head>
@@ -173,5 +176,54 @@
       </div>
     </main>
     <script src="script.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCvJ-6f87zbc9dOpM3FpNePslA_wQl_zto",
+        authDomain: "journal-app-a7ae0.firebaseapp.com",
+        projectId: "journal-app-a7ae0",
+        storageBucket: "journal-app-a7ae0.appspot.com",
+        messagingSenderId: "954912829393",
+        appId: "1:954912829393:web:f12c5d5dbcebc1ed2b7af0",
+        measurementId: "G-WMSDVMTJ3Y",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+    <!-- Dashboard script -->
+    <!-- <script>
+      // Function to handle sign-out
+      function signOut() {
+        firebase
+          .auth()
+          .signOut()
+          .then(function () {
+            console.log("User signed out");
+            // Redirect back to the login page after sign-out
+            window.location.href = "signin.html";
+          })
+          .catch(function (error) {
+            console.error("Sign-out failed:", error);
+          });
+      }
+    </script> -->
+    <!-- <script>
+      // Function to handle sign-out
+      function signOut() {
+        firebase
+          .auth()
+          .signOut()
+          .then(function () {
+            console.log("User signed out");
+            // Redirect back to the login page after sign-out
+            window.location.href = "login.html";
+          })
+          .catch(function (error) {
+            console.error("Sign-out failed:", error);
+          });
+      }
+    </script> -->
   </body>
 </html>
