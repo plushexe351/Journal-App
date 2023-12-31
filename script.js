@@ -241,7 +241,7 @@ closePreviewBtn.addEventListener('click', () => {
         const newNoteDeleteBtn = document.createElement('i');
         newNoteDeleteBtn.classList.add('fa');
         newNoteDeleteBtn.classList.add('fa-trash');
-        newNoteHeading.textContent = previewScreenHeading.value || 'Note';
+        newNoteHeading.textContent = previewScreenHeading.value || `Note #${++headerCategories[0].querySelector('span').textContent}`;
         const newNoteMessage = document.createElement('p');
         newNoteMessage.textContent = (previewScreenText.textContent.trim() == 'Type here...' || previewScreenText.textContent.trim() == '') ? 'Write Something' : previewScreenText.textContent;
         const newNoteTag = document.createElement('div');
@@ -269,7 +269,7 @@ closePreviewBtn.addEventListener('click', () => {
         newNote.appendChild(newNoteTag);
         newNote.appendChild(newNoteDate);
 
-        newNoteMessage.textContent != 'Write Something' ? notesContainer.prepend(newNote) : null;
+        notesContainer.prepend(newNote);
 
 
         removeClassFromALlElements(headerCategories, 'active');
