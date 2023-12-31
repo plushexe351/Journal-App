@@ -80,10 +80,15 @@ header h1 {
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
 }
 
+
 .category.active {
     background-color: rgb(223, 223, 223);
     color: rgb(27, 27, 27);
 }
+
+/* .category.favorite.active .fa-heart {
+    color: rgb(255, 89, 89);
+} */
 
 .category.active:hover {
     background-color: rgb(201, 201, 201);
@@ -109,6 +114,9 @@ header h1 {
 
 
 .notes {
+    color: white;
+    justify-content: center;
+    /* text-align: center; */
     padding: 2rem;
     display: flex;
     gap: 1rem;
@@ -116,19 +124,57 @@ header h1 {
 
 }
 
+.modal-no-notes {
+    display: none;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 250px;
+    color: rgba(255, 255, 255, 0.504);
+    border-radius: 1rem;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    place-items: center;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+
+.modal-no-notes.show {
+    display: grid;
+}
+
+.modal-no-notes.show:hover {
+    /* transform: scale(1.05); */
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
 .notes h2 {
     font-weight: 500;
+    text-transform: capitalize;
+}
+
+.cloud {
+    display: block;
+    padding: 1rem;
+    font-size: 3rem;
+    color: white;
 }
 
 .note {
-    opacity: 0;
+    /* opacity: 0; */
+    display: none;
     flex: 1;
     padding: 1rem 1.5rem;
     color: rgb(213, 213, 213);
-    background-color: rgb(31, 31, 31);
+    background-color: rgb(19, 19, 19);
     border-radius: 1.2rem;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.3);
     min-width: 30vw;
+    max-width: 400px;
     transition: 0.3s ease;
     position: relative;
     cursor: pointer;
@@ -145,7 +191,7 @@ header h1 {
 }
 
 .note.show {
-    opacity: 1;
+    display: unset;
 }
 
 .note:hover {
@@ -208,6 +254,7 @@ header h1 {
     backdrop-filter: blur(2rem);
     -webkit-backdrop-filter: blur(2rem);
     transition: 0.5s;
+    z-index: 999;
 }
 
 .preview.active {
@@ -217,7 +264,11 @@ header h1 {
 }
 
 .container img {
-    max-width: 30vw;
+    min-width: 200px;
+    width: 300px;
+    max-width: 90vw;
+    ;
+    object-fit: cover;
     border-radius: 0.4rem;
 }
 
@@ -227,14 +278,16 @@ header h1 {
 
 .heading {
     color: white;
-    padding: 0 1rem 1rem 1rem;
+    padding: 0 1rem 1rem 0;
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
-    /* border: 1px solid red; */
-    /* overflow: scroll; */
+    display: flex;
+    justify-content: space-between;
+    gap: 0.2rem;
+    align-items: center;
     font-family: poppins;
     background-color: transparent;
     border: none;
@@ -247,11 +300,9 @@ header h1 {
 
 
 .preview .noteMessage {
+    padding-block: 1rem;
     max-width: 700px;
     min-height: 100px;
-}
-
-.preview.noteMessage {
     font-weight: 200;
 }
 
@@ -312,13 +363,26 @@ header h1 {
     cursor: pointer;
 }
 
+.tools>.delete-note {
+    color: rgb(255, 89, 89);
+}
+
+.tools>.delete-note:hover {
+    color: red;
+}
+
 .btn-close-modal:hover {
     background-color: rgb(173, 173, 173);
 }
 
 @media screen and (max-width:680px) {
     .notes {
-        gap: 2rem;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .note {
+        margin-bottom: 1rem;
     }
 
     .note p {
@@ -330,6 +394,7 @@ header h1 {
     .date {
         top: -1.3rem;
         left: 1rem;
+        z-index: -1;
     }
 
     h2 {

@@ -24,18 +24,25 @@
       <h1>Journal</h1>
       <nav class="categories">
         <div class="category all-notes active">
-          All Notes <span class="count">20</span>
+          All Notes <span class="count"></span>
         </div>
-        <div class="category work">#Work <span class="count">10</span></div>
+        <div class="category work">#Work <span class="count"></span></div>
         <div class="category personal">
-          #Personal <span class="count">5</span>
+          #Personal <span class="count"></span>
         </div>
-        <div class="category personal">
-          #Favorites <span class="count">5</span>
+        <div class="category favorites">
+          #Favorite <span class="count"></span>
         </div>
       </nav>
     </header>
     <main>
+      <div class="modal-no-notes">
+        <p>
+          <i class="fa fa-cloud cloud"></i>It's a little empty in here... Write
+          something
+        </p>
+        <p></p>
+      </div>
       <div class="notes">
         <div class="note gradient_1">
           <h2>Pinterest ideas</h2>
@@ -65,7 +72,6 @@
           </p>
           <div class="tag">#Personal</div>
           <div class="date">sat 23 dec</div>
-          <!-- <div class="tag">#Favorite</div> -->
         </div>
         <div class="note gradient_3">
           <h2>Places I wanna visit</h2>
@@ -94,6 +100,7 @@
         </div>
         <div class="note gradient_1">
           <h2>Why should I breakup</h2>
+
           <div class="images"><img src="assets/img7.jpg" alt="" /></div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
@@ -104,6 +111,7 @@
         </div>
         <div class="note gradient_4">
           <h2>DSA notes</h2>
+
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
             quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
@@ -127,32 +135,38 @@
       <div class="preview">
         <div class="toolbar">
           <div class="tools">
-            <div class="add-image fa fa-image"></div>
+            <input
+              id="imageInput"
+              type="file"
+              accept="image/*"
+              title="Input Image"
+              src=""
+              alt=""
+              hidden
+            />
+            <label for="imageInput" title="Upload Image">
+              <div class="add-image fa fa-image"></div>
+            </label>
             <div class="add-voice-message fa fa-microphone"></div>
             <div class="add-text fa fa-pen-clip"></div>
+            <div class="delete-note fa fa-trash"></div>
           </div>
-
           <div class="btn-close-modal">Save</div>
         </div>
         <input type="text" placeholder="heading" class="heading" />
         <div class="container">
           <div class="categories">
             <p>Tags</p>
-            <div class="category">#Work</div>
-            <div class="category">#Personal</div>
-            <div class="category">#Favorite</div>
+            <div class="category personal">#Personal</div>
+            <div class="category work">#Work</div>
+            <div class="category favorite">#Favorite</div>
           </div>
           <div
             class="noteMessage"
             contenteditable="true"
             placeholder="Write something..."
           ></div>
-          <!-- Type here... -->
-          <div class="images">
-            <!-- <img src="assets/img3.jpg" alt="" />
-            <img src="assets/img7.jpg" alt="" /> -->
-          </div>
-          <!-- <div class="btn-close-modal fa fa-close"></div> -->
+          <div class="images"></div>
         </div>
       </div>
     </main>
